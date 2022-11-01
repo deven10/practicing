@@ -1,0 +1,31 @@
+*{
+    /* background-color:rgb(229, 213, 216); */
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Desiging counter app */
+.counter{
+    /* background-color: yellow; */
+    padding: 20px 40px;
+}
+.add, .subtract{
+    font-size: 24px;
+    padding: 3px 10px;
+}
+.input{
+    width: 200px;
+    text-align: center;
+    border: 1 solid black;
+    outline: none;
+    height: 30px;
+    font-size: 26px;
+    /* background-color: black; */
+    /* color:#fff; */
+}

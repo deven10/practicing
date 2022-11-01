@@ -1,0 +1,31 @@
+*{
+    background-color: rgb(247, 208, 208);
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.btn{
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 10px 5px;
+}
+
+.output{
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+/* 
+#label{
+    font-size: 40px;
+    text-align: center;
+} */

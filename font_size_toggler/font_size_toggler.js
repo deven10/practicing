@@ -2,18 +2,18 @@ let add = document.querySelector("#add");
 let sub = document.querySelector("#sub");
 
 let output = document.querySelector("#output");
-let label = document.querySelector("#label");
 
-// label = output.value;
-// let size = 18;
+let size = 18;
 function incrementFontSize(){
-    output.style.fontSize = "x-large";
+    size = size + 2;
+    output.style.fontSize = `${size}px`;
 };
 
 add.addEventListener("click",incrementFontSize);
 
 function decrementFontSize(){
-    output.style.fontSize = "small";
+    size = size - 2;
+    output.style.fontSize = `${size}px`;
 };
 
 sub.addEventListener("click", decrementFontSize);

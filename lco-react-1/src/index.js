@@ -10,7 +10,10 @@ import {
   Navigate,
   Link,
   Outlet,
-  useParams
+  useParams,
+  NavLink,
+  useNavigate,
+  useLocation
 } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +28,7 @@ root.render(
         </Route>
         <Route path='bundles' element={<Bundles/>}/>
       </Route>
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   </BrowserRouter>
 );
@@ -50,6 +54,9 @@ function Learn(){
 }
 
 function Courses(){
+  const courseList = ["React", "Angular", "Vue", "Python", "NodeJS"];
+  const randomCourseName = courseList[Math.floor(Math.random() * courseList.length)];
+
   return(
     <div>
       <h2>Courses List</h2>
@@ -60,6 +67,17 @@ function Courses(){
           <li>Course 3</li>
         </ul>
       </h4>
+      <h5>MORE COURSES</h5>
+      <NavLink style={({isActive}) => {
+        return {
+          backgroundColor: isActive ? "pink" : "yellow"
+        }
+      }} to={`/learn/courses/${randomCourseName}`}>
+        {randomCourseName}
+      </NavLink>{" "}
+      <NavLink className="btn btn-dark" to={'tests'}>
+        tests
+      </NavLink>
       <Outlet />
     </div>
   );
@@ -81,10 +99,34 @@ function Bundles(){
 }
 
 function CourseId(){
+  const navigate = useNavigate();
   const {courseid} = useParams();
   return(
     <div>
       <h2>USE PARAMS {courseid}</h2>
+      <button 
+        onClick={() => {
+          navigate("/dashboard", { state: courseid } );
+        }}
+        className='btn btn-warning'>Price
+      </button>
+        <Link 
+          to="/dashboard" state="DJANGO"
+          className='btn btn-info' >
+          Test Link
+        </Link>
+    </div>
+  );
+}
+
+function Dashboard(){
+  const location = useLocation();
+  return(
+    <div>
+      <h2>
+          Course Name = {location.state}
+      </h2>
+      
     </div>
   );
 }
